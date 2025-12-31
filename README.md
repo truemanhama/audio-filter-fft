@@ -1,23 +1,20 @@
-# audio-filter-fft
-This project focused on the design and implementation of a robust digital signal processing system aimed at enhancing audio clarity by removing unwanted environmental and equipment-induced noise.
-
 # Audio Signal Noise Filtering Application
 
 ## Overview
-[cite_start]This project is a digital signal processing application designed to enhance audio quality by filtering out unwanted noise, such as environmental disturbances or equipment hiss[cite: 12, 13]. [cite_start]Developed as part of the **EE320: Signals and Systems** course at **Ashesi University**[cite: 1, 2], the tool provides a graphical user interface (GUI) for applying various digital filters to `.wav` audio files.
+This project is a digital signal processing application designed to enhance audio quality by filtering out unwanted noise, such as environmental disturbances or equipment hiss. Developed as part of the **EE320: Signals and Systems** course at **Ashesi University**, the tool provides a graphical user interface (GUI) for applying various digital filters to `.wav` audio files.
 
-[cite_start]The system utilizes **Infinite Impulse Response (IIR) Butterworth filters** to ensure a maximally flat frequency response in the passband, minimizing signal distortion while effectively attenuating noise[cite: 141, 563].
+The system utilizes **Infinite Impulse Response (IIR) Butterworth filters** to ensure a maximally flat frequency response in the passband, minimizing signal distortion while effectively attenuating noise.
 
 ## Features
-* [cite_start]**User-Friendly GUI:** Built with Python's `tkinter`, allowing easy file selection and interaction[cite: 153, 154].
+* **User-Friendly GUI:** Built with Python's `tkinter`, allowing easy file selection and interaction.
 * **Multiple Filter Types:**
-    * [cite_start]**Low-pass:** Removes high-frequency noise (e.g., hiss)[cite: 56, 58].
-    * [cite_start]**High-pass:** Removes low-frequency noise (e.g., hum, rumble)[cite: 60, 62].
-    * [cite_start]**Band-pass:** Isolates a specific frequency range (e.g., speech band)[cite: 64, 66].
-    * [cite_start]**Band-stop:** Rejects a specific frequency range[cite: 68].
-* [cite_start]**Zero-Phase Filtering:** Implements forward-backward filtering (`filtfilt`) to prevent phase distortion in the processed signal[cite: 36, 113].
-* [cite_start]**Visual Analysis:** Real-time plotting of time-domain waveforms for both the original and filtered signals[cite: 100, 118].
-* [cite_start]**Export:** Save the processed, clean audio as a new `.wav` file.
+    * **Low-pass:** Removes high-frequency noise (e.g., hiss).
+    * **High-pass:** Removes low-frequency noise (e.g., hum, rumble).
+    * **Band-pass:** Isolates a specific frequency range (e.g., speech band).
+    * **Band-stop:** Rejects a specific frequency range.
+* **Zero-Phase Filtering:** Implements forward-backward filtering (`filtfilt`) to prevent phase distortion in the processed signal.
+* **Visual Analysis:** Real-time plotting of time-domain waveforms for both the original and filtered signals.
+* **Export:** Save the processed, clean audio as a new `.wav` file.
 
 ## Installation
 
@@ -26,3 +23,53 @@ Ensure you have **Python 3.x** installed. You will need the following dependenci
 
 ```bash
 pip install numpy scipy matplotlib
+
+```
+
+*Note: `tkinter` is usually included with standard Python installations. If you are on Linux, you may need to install `python3-tk` separately.*
+
+### Running the Application
+
+1. Clone this repository.
+2. Navigate to the project directory.
+3. Run the script:
+```bash
+python audio_filter_app.py
+
+```
+
+
+
+## Usage
+
+1. **Upload Audio:** Click "Upload Audio" to select a `.wav` file from your computer.
+2. **Select Filter:** Choose between Low-pass, High-pass, Band-pass, or Band-stop from the dropdown menu.
+3. **Configure Parameters:**
+* **Cutoff Frequency:** For Low/High-pass filters (default: 1000 Hz).
+* **Low/High Cutoff:** For Band-pass/Band-stop filters (defines the frequency range).
+
+
+4. **Apply Filter:** Click "Apply Filter" to process the audio and view the waveform comparison.
+5. **Save:** Click "Save Filtered Audio" to export the result.
+
+## Technical Details
+
+* **Filter Order:** The system uses **4th-order** Butterworth filters to achieve a balance between computational efficiency and a steep roll-off at the cutoff frequency.
+* **Signal Processing:**
+* **Normalization:** Input signals are normalized to ensure consistent amplitude ranges.
+* **Sampling:** The application respects the Nyquist rate (0.5 * fs) when calculating normalized cutoff frequencies.
+
+
+
+## Authors
+
+**Group 9**
+
+* Obadiah Safi
+* Shadrack Agyei Nti
+* Philip Teye Aborsi
+* Trueman Hama Mabumbo
+
+```
+
+```
